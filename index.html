@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Qasim Attar — Pure Heritage Fragrances from Kannauj</title>
+  <meta name="description" content="Qasim Attar offers 100% pure, alcohol-free attars sourced directly from Kannauj — India's perfume capital. Authentic fragrances for men and women."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:wght@300;400;500&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --gold-dim: #7a6128;
+      --bg-deep: #0a0804;
+      --bg-card: #110e07;
+      --bg-section: #0e0b05;
+      --text-main: #f0e8d8;
+      --text-muted: #9a8870;
+      --text-soft: #c8b896;
+      --accent: #2a1f0d;
+      --border: rgba(201,168,76,0.18);
+      --border-strong: rgba(201,168,76,0.4);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text-main);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* NOISE TEXTURE OVERLAY */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 3rem;
+      background: rgba(10,8,4,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+
+    .nav-logo span {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-soft);
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold) !important;
+      padding: 0.5rem 1.5rem;
+      border-radius: 0;
+      cursor: pointer;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold);
+      color: var(--bg-deep) !important;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+      transition: all 0.3s;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 8rem 2rem 4rem;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 60%, rgba(201,168,76,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 80% 30%, rgba(201,168,76,0.05) 0%, transparent 70%),
+        linear-gradient(180deg, #0a0804 0%, #0e0905 50%, #0a0804 100%);
+    }
+
+    .hero-ornament {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.06);
+      animation: pulse-ring 4s ease-in-out infinite;
+    }
+
+    .hero-ornament::before {
+      content: '';
+      position: absolute;
+      inset: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.04);
+    }
+
+    @keyframes pulse-ring {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+      50% { transform: translate(-50%, -50%) scale(1.03); opacity: 1; }
+    }
+
+    .hero-content {
+      position: relative;
+      text-align: center;
+      max-width: 800px;
+      animation: fadeUp 1s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-arabic {
+      font-family: 'Amiri', serif;
+      font-size: 1.4rem;
+      color: var(--gold-dim);
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.2s both;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.3s both;
+    }
+
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '—';
+      margin: 0 0.8rem;
+      opacity: 0.5;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      line-height: 1;
+      font-weight: 400;
+      color: var(--text-main);
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.4s both;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+      display: block;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 1.5rem auto 3rem;
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.5s both;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.6s both;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--bg-deep);
+      padding: 1rem 2.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(201,168,76,0.25);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-soft);
+      padding: 1rem 2.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--border-strong);
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    /* ─── TRUST BAR ─── */
+    .trust-bar {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+      background: var(--bg-section);
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .trust-icon {
+      font-size: 1.2rem;
+    }
+
+    .trust-item strong {
+      color: var(--text-soft);
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+    }
+
+    /* ─── SECTION STYLES ─── */
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 400;
+      text-align: center;
+      color: var(--text-main);
+      margin-bottom: 1.2rem;
+      line-height: 1.15;
+    }
+
+    .section-title em { font-style: italic; color: var(--gold); }
+
+    .section-desc {
+      text-align: center;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto 4rem;
+      font-weight: 300;
+      font-size: 1rem;
+    }
+
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 1.5rem auto;
+      opacity: 0.5;
+    }
+
+    /* ─── STORY SECTION ─── */
+    .story {
+      background: var(--bg-section);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story::before {
+      content: '"';
+      position: absolute;
+      font-family: 'Playfair Display', serif;
+      font-size: 25rem;
+      color: rgba(201,168,76,0.02);
+      top: -5rem;
+      left: -2rem;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .story-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .story-visual {
+      position: relative;
+    }
+
+    .story-box {
+      background: var(--accent);
+      border: 1px solid var(--border);
+      padding: 3rem;
+      position: relative;
+    }
+
+    .story-box::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      right: 8px;
+      bottom: 8px;
+      border: 1px solid var(--border);
+      pointer-events: none;
+    }
+
+    .story-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      color: var(--gold);
+      opacity: 0.15;
+      line-height: 1;
+    }
+
+    .story-stat-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: -1rem;
+    }
+
+    .story-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .stat {
+      border-top: 1px solid var(--border);
+      padding-top: 1.2rem;
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--gold);
+      font-weight: 400;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .story-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .story-text h2 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .story-text p {
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+    }
+
+    .kannauj-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      border: 1px solid var(--border-strong);
+      padding: 0.6rem 1.2rem;
+      margin-top: 1rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ─── PRODUCTS ─── */
+    .products { background: var(--bg-deep); }
+
+    .products-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+    }
+
+    .product-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s;
+      cursor: pointer;
+    }
+
+    .product-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.4s;
+      transform-origin: left;
+    }
+
+    .product-card:hover { border-color: var(--border-strong); }
+    .product-card:hover::before { transform: scaleX(1); }
+
+    .product-card:hover .product-icon { transform: scale(1.1); }
+
+    .product-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
+    }
+
+    .product-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      display: block;
+      transition: transform 0.4s;
+    }
+
+    .product-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+    }
+
+    .product-arabic {
+      font-family: 'Amiri', serif;
+      font-size: 1rem;
+      color: var(--gold-dim);
+      margin-bottom: 1rem;
+    }
+
+    .product-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .scent-notes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 2rem;
+    }
+
+    .note {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.7rem;
+    }
+
+    .note.top { border-color: var(--gold-dim); color: var(--gold-dim); }
+
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+    }
+
+    .product-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+    }
+
+    .product-price span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-family: 'Cormorant Garamond', serif;
+      display: block;
+      letter-spacing: 0.1em;
+    }
+
+    .product-btn {
+      background: transparent;
+      border: 1px solid var(--border-strong);
+      color: var(--text-soft);
+      padding: 0.6rem 1.2rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .product-btn:hover {
+      background: var(--gold);
+      color: var(--bg-deep);
+      border-color: var(--gold);
+    }
+
+    .product-featured {
+      border-color: var(--gold-dim);
+      background: linear-gradient(135deg, #110e07, #1a1408);
+    }
+
+    .bestseller-badge {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--bg-deep);
+      background: var(--gold);
+      padding: 0.3rem 0.7rem;
+    }
+
+    /* ─── WHY US ─── */
+    .why {
+      background: var(--bg-section);
+      position: relative;
+    }
+
+    .why-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .why-card {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      border: 1px solid var(--border);
+      position: relative;
+      transition: all 0.4s;
+    }
+
+    .why-card:hover {
+      border-color: var(--border-strong);
+      background: var(--accent);
+    }
+
+    .why-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    .why-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+      color: var(--text-main);
+    }
+
+    .why-desc {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ─── GIFT SECTION ─── */
+    .gifting {
+      background: var(--bg-deep);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gifting-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .gifting-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .gifting-text h2 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .gifting-text p {
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    .gift-features {
+      list-style: none;
+      margin-bottom: 2.5rem;
+    }
+
+    .gift-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .gift-features li:last-child { border-bottom: none; }
+
+    .gift-features li::before {
+      content: '◆';
+      color: var(--gold);
+      font-size: 0.5rem;
+      margin-top: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .gift-visual {
+      position: relative;
+    }
+
+    .gift-box-display {
+      background: var(--accent);
+      border: 1px solid var(--border-strong);
+      padding: 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .gift-box-display::after {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      right: -8px;
+      bottom: -8px;
+      border: 1px solid var(--border);
+      z-index: -1;
+    }
+
+    .gift-emoji { font-size: 5rem; display: block; margin-bottom: 1.5rem; }
+
+    .gift-box-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .gift-box-subtitle {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 2rem;
+    }
+
+    .gift-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .gift-option {
+      background: var(--bg-deep);
+      border: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+
+    .gift-option-name { color: var(--text-soft); }
+    .gift-option-price { color: var(--gold); font-family: 'Playfair Display', serif; }
+
+    /* ─── TESTIMONIALS ─── */
+    .testimonials { background: var(--bg-section); }
+
+    .reviews-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .review-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      position: relative;
+    }
+
+    .review-card::before {
+      content: '"';
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      color: rgba(201,168,76,0.08);
+      line-height: 1;
+    }
+
+    .stars {
+      color: var(--gold);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    .review-text {
+      color: var(--text-muted);
+      font-weight: 300;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .reviewer {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1.2rem;
+    }
+
+    .reviewer-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 1px solid var(--border-strong);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-family: 'Playfair Display', serif;
+      color: var(--gold);
+    }
+
+    .reviewer-name {
+      font-size: 0.88rem;
+      color: var(--text-soft);
+    }
+
+    .reviewer-loc {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+    }
+
+    .review-product {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-top: 0.2rem;
+    }
+
+    /* ─── CONTACT ─── */
+    .contact {
+      background: var(--bg-deep);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+
+    .contact-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-methods {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+
+    .contact-card {
+      border: 1px solid var(--border);
+      padding: 2rem 1rem;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: block;
+    }
+
+    .contact-card:hover {
+      border-color: var(--gold);
+      background: var(--accent);
+    }
+
+    .contact-card-icon { font-size: 2rem; display: block; margin-bottom: 0.8rem; }
+    .contact-card-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-card-val {
+      color: var(--text-soft);
+      font-size: 0.9rem;
+    }
+
+    .contact-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      background: #25D366;
+      color: #fff;
+      padding: 1.1rem 2.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: all 0.3s;
+    }
+
+    .contact-whatsapp:hover {
+      background: #128C7E;
+      transform: translateY(-2px);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--bg-section);
+      border-top: 1px solid var(--border);
+      padding: 4rem 3rem 2rem;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+      max-width: 1100px;
+      margin: 0 auto 3rem;
+    }
+
+    .footer-brand .nav-logo {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.8;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--text-soft);
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .footer-col ul li a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.3s;
+    }
+
+    .footer-col ul li a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-bottom p {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .footer-bottom a {
+      color: var(--gold-dim);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-bottom a:hover { color: var(--gold); }
+
+    /* ─── ORDER MODAL ─── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal {
+      background: var(--bg-card);
+      border: 1px solid var(--border-strong);
+      padding: 3rem;
+      max-width: 500px;
+      width: 100%;
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.3s;
+    }
+
+    .modal-overlay.active .modal {
+      transform: translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.4rem;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .modal-close:hover { color: var(--gold); }
+
+    .modal h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+
+    .modal p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem; }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: var(--accent);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 0.9rem 1.2rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-group select option {
+      background: var(--bg-card);
+      color: var(--text-main);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 80px; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--gold);
+      color: var(--bg-deep);
+      border: none;
+      padding: 1.1rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 0.5rem;
+    }
+
+    .form-submit:hover { background: var(--gold-light); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 60px; left: 0; right: 0;
+        background: rgba(10,8,4,0.98);
+        border-bottom: 1px solid var(--border);
+        padding: 2rem;
+        gap: 1.5rem;
+        z-index: 99;
+      }
+
+      .hamburger { display: flex; }
+
+      .story-grid,
+      .gifting-inner { grid-template-columns: 1fr; gap: 3rem; }
+
+      .products-grid { grid-template-columns: 1fr 1fr; }
+
+      .why-grid { grid-template-columns: 1fr 1fr; }
+
+      .reviews-grid { grid-template-columns: 1fr; }
+
+      .contact-methods { grid-template-columns: 1fr; }
+
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+
+      .footer-bottom { flex-direction: column; text-align: center; }
+
+      .trust-bar { gap: 2rem; }
+    }
+
+    @media (max-width: 600px) {
+      .products-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: 3rem; }
+      section { padding: 4rem 1.2rem; }
+      .modal { padding: 2rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">Qasim <span>Attar</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#fragrances">Fragrances</a></li>
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#gifting">Gifting</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#" class="nav-cta" onclick="openModal()">Order Now</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-ornament"></div>
+  <div class="hero-content">
+    <div class="hero-arabic">عطر قاسم — خالص، أصيل، طبيعي</div>
+    <div class="hero-eyebrow">Pure Heritage Fragrances</div>
+    <h1 class="hero-title">
+      Qasim<br/>
+      <em>Attar</em>
+    </h1>
+    <p class="hero-subtitle">
+      100% pure, alcohol-free attars — sourced directly from Kannauj, India's perfume capital. Each fragrance tells a story.
+    </p>
+    <div class="hero-btns">
+      <a href="#fragrances" class="btn-primary">Explore Fragrances</a>
+      <a href="#story" class="btn-secondary">Our Heritage</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-icon">🌿</span><div><strong>100% Natural</strong><br>Pure Kannauj distilled</div></div>
+  <div class="trust-item"><span class="trust-icon">🚫</span><div><strong>Alcohol Free</strong><br>Halal certified attar</div></div>
+  <div class="trust-item"><span class="trust-icon">✋</span><div><strong>Handcrafted</strong><br>Traditional deg-bhapka</div></div>
+  <div class="trust-item"><span class="trust-icon">📦</span><div><strong>Free Delivery</strong><br>Orders above ₹599</div></div>
+  <div class="trust-item"><span class="trust-icon">💎</span><div><strong>Gift Ready</strong><br>Personalized packaging</div></div>
+</div>
+
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="story-grid">
+    <div class="story-visual">
+      <div class="story-box">
+        <div class="story-number">1000</div>
+        <div class="story-stat-label">Years of Kannauj Heritage</div>
+        <div class="story-stats">
+          <div class="stat">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Pure & Natural</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">0%</div>
+            <div class="stat-label">Alcohol, Ever</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">8+</div>
+            <div class="stat-label">Hours Longevity</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">15+</div>
+            <div class="stat-label">Unique Fragrances</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="story-text">
+      <div class="section-label">Our Story</div>
+      <h2>Born from the <em>Soil of Kannauj</em></h2>
+      <p>Qasim Attar was born from a simple belief — that the finest fragrances should come from the earth, not a laboratory. We source our attars directly from the heart of Kannauj, Uttar Pradesh — India's perfume capital for over a thousand years.</p>
+      <p>Unlike mass-market brands, every bottle of Qasim Attar carries the authenticity of traditional deg-bhapka distillation — pure, potent, and free from any synthetic additives or alcohol.</p>
+      <p>Our promise is simple: what you smell is exactly what nature created.</p>
+      <div class="kannauj-badge">
+        🏺 Sourced from Kannauj, UP — India's Perfume Capital
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FRAGRANCES -->
+<section class="products" id="fragrances">
+  <div class="section-label">Our Collection</div>
+  <h2 class="section-title">Fragrances with a <em>Soul</em></h2>
+  <div class="divider"></div>
+  <p class="section-desc">Each attar is named for a feeling, a memory, a moment — not just a scent.</p>
+
+  <div class="products-grid">
+
+    <div class="product-card product-featured">
+      <div class="bestseller-badge">Bestseller</div>
+      <div class="product-tag">⭐ Signature Collection</div>
+      <span class="product-icon">🌹</span>
+      <div class="product-name">Subah-e-Madina</div>
+      <div class="product-arabic">صباح المدينة</div>
+      <div class="product-desc">A serene morning fragrance — soft rose, warm sandalwood, and a whisper of musk. Made for prayers and peaceful beginnings.</div>
+      <div class="scent-notes">
+        <span class="note top">Rose</span>
+        <span class="note">Sandalwood</span>
+        <span class="note">Musk</span>
+        <span class="note">Saffron</span>
+      </div>
+      <div class="product-footer">
+        <div class="product-price">₹499 <span>10ml roll-on</span></div>
+        <a href="#" class="product-btn" onclick="openModal('Subah-e-Madina'); return false;">Order Now</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-tag">🌙 Evening Collection</div>
+      <span class="product-icon">🪵</span>
+      <div class="product-name">Shaam-e-Lucknow</div>
+      <div class="product-arabic">شام لكناؤ</div>
+      <div class="product-desc">Rich oudh and aged sandalwood meet warm amber — an evening scent that commands attention without demanding it.</div>
+      <div class="scent-notes">
+        <span class="note top">Oudh</span>
+        <span class="note">Amber</span>
+        <span class="note">Sandalwood</span>
+        <span class="note">Tobacco</span>
+      </div>
+      <div class="product-footer">
+        <div class="product-price">₹599 <span>10ml roll-on</span></div>
+        <a href="#" class="product-btn" onclick="openModal('Shaam-e-Lucknow'); return false;">Order Now</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-tag">🌸 Floral Collection</div>
+      <span class="product-icon">🌺</span>
+      <div class="product-name">Bahar-e-Gulshan</div>
+      <div class="product-arabic">بهار گلشن</div>
+      <div class="product-desc">A garden in full bloom — jasmine, mogra, and a touch of kewda. Light, feminine, and unforgettably fresh.</div>
+      <div class="scent-notes">
+        <span class="note top">Jasmine</span>
+        <span class="note">Mogra</span>
+        <span class="note">Kewda</span>
+        <span class="note">Rose Water</span>
+      </div>
+      <div class="product-footer">
+        <div class="product-price">₹449 <span>10ml roll-on</span></div>
+        <a href="#" class="product-btn" onclick="openModal('Bahar-e-Gulshan'); return false;">Order Now</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-tag">🏔️ Premium Oudh</div>
+      <span class="product-icon">🖤</span>
+      <div class="product-name">Qasim Black Oudh</div>
+      <div class="product-arabic">العود الأسود</div>
+      <div class="product-desc">Our most intense creation. Deep, smoky Oud from the finest agarwood — for those who leave a trail worth remembering.</div>
+      <div class="scent-notes">
+        <span class="note top">Agarwood Oud</span>
+        <span class="note">Vetiver</span>
+        <span class="note">Dark Musk</span>
+        <span class="note">Cedar</span>
+      </div>
+      <div class="product-footer">
+        <div class="product-price">₹999 <span>10ml — premium</span></div>
+        <a href="#" class="product-btn" onclick="openModal('Qasim Black Oudh'); return false;">Order Now</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-tag">💧 Fresh Collection</div>
+      <span class="product-icon">🌊</span>
+      <div class="product-name">Noor-e-Sehar</div>
+      <div class="product-arabic">نور سحر</div>
+      <div class="product-desc">Clean, aquatic and crisp — a modern attar for everyday freshness. Light citrus meets white musk in this unisex delight.</div>
+      <div class="scent-notes">
+        <span class="note top">Citrus</span>
+        <span class="note">White Musk</span>
+        <span class="note">Aqua</span>
+        <span class="note">Bergamot</span>
+      </div>
+      <div class="product-footer">
+        <div class="product-price">₹399 <span>10ml roll-on</span></div>
+        <a href="#" class="product-btn" onclick="openModal('Noor-e-Sehar'); return false;">Order Now</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-tag">🎁 Gift Special</div>
+      <span class="product-icon">✨</span>
+      <div class="product-name">Discovery Set</div>
+      <div class="product-arabic">مجموعة الاكتشاف</div>
+      <div class="product-desc">Try before you commit — 5 of our best fragrances in 3ml each. Presented in a beautiful gift box. Perfect first order.</div>
+      <div class="scent-notes">
+        <span class="note top">5 Fragrances</span>
+        <span class="note">3ml Each</span>
+        <span class="note">Gift Box</span>
+      </div>
+      <div class="product-footer">
+        <div class="product-price">₹799 <span>5×3ml gift set</span></div>
+        <a href="#" class="product-btn" onclick="openModal('Discovery Set'); return false;">Order Now</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why">
+  <div class="section-label">Why Qasim Attar</div>
+  <h2 class="section-title">What Makes Us <em>Different</em></h2>
+  <div class="divider"></div>
+  <p class="section-desc">We believe every bottle should tell the truth about what's inside.</p>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <span class="why-icon">🏺</span>
+      <div class="why-title">Direct from Kannauj</div>
+      <p class="why-desc">We travel to Kannauj — India's 1000-year-old attar capital — and source directly from distillers. No middlemen. Pure product.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🌿</span>
+      <div class="why-title">Truly 100% Natural</div>
+      <p class="why-desc">Unlike brands that say "luxurious not natural" — we say both. Every ingredient is plant-based, steam-distilled, and chemical-free.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">✍️</span>
+      <div class="why-title">Personalized Gifting</div>
+      <p class="why-desc">Add your name, a message, or a custom label to any bottle. Wedding gifts, Eid presents, anniversaries — made personal.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">💰</span>
+      <div class="why-title">Honest Pricing</div>
+      <p class="why-desc">Premium quality without the premium brand markup. Because your money should smell as good as your attar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GIFTING -->
+<section class="gifting" id="gifting">
+  <div class="gifting-inner">
+    <div class="gifting-text">
+      <div class="section-label">Gifting</div>
+      <h2>A Gift that <em>Lingers</em> Long After</h2>
+      <p>Attar is the most intimate gift — it stays on the skin, becomes part of someone's memory. We make that gift even more special with personalization.</p>
+      <ul class="gift-features">
+        <li>Custom name or message printed on the bottle</li>
+        <li>Handcrafted wooden gift box available</li>
+        <li>Curated fragrance sets for every occasion</li>
+        <li>Bulk corporate gifting with your company name</li>
+        <li>Special Eid, Nikah, and Wedding gift sets</li>
+      </ul>
+      <a href="#" class="btn-primary" onclick="openModal(); return false;">Order a Gift Set</a>
+    </div>
+    <div class="gift-visual">
+      <div class="gift-box-display">
+        <span class="gift-emoji">🎁</span>
+        <div class="gift-box-title">Qasim Gift Collections</div>
+        <div class="gift-box-subtitle">Choose your set — we do the rest</div>
+        <div class="gift-options">
+          <div class="gift-option">
+            <span class="gift-option-name">💫 Discovery Set (5×3ml)</span>
+            <span class="gift-option-price">₹799</span>
+          </div>
+          <div class="gift-option">
+            <span class="gift-option-name">🌹 Floral Gift Box (3×10ml)</span>
+            <span class="gift-option-price">₹1,299</span>
+          </div>
+          <div class="gift-option">
+            <span class="gift-option-name">🖤 Royal Oudh Box (2×10ml)</span>
+            <span class="gift-option-price">₹1,699</span>
+          </div>
+          <div class="gift-option">
+            <span class="gift-option-name">✍️ Personalized + Wooden Box</span>
+            <span class="gift-option-price">₹2,499</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="reviews">
+  <div class="section-label">Reviews</div>
+  <h2 class="section-title">What Our Customers <em>Say</em></h2>
+  <div class="divider"></div>
+  <p class="section-desc">Real words from real people who discovered pure attar.</p>
+
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">Subah-e-Madina is everything I wanted in a morning attar. Soft, clean, and genuinely long-lasting. I apply it after Fajr and it stays till afternoon. Never going back to synthetic perfumes.</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">A</div>
+        <div>
+          <div class="reviewer-name">Asif Raza</div>
+          <div class="reviewer-loc">Lucknow, UP</div>
+          <div class="review-product">Subah-e-Madina</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">Ordered the Discovery Set as a Eid gift for my husband. The packaging was gorgeous, the fragrances were all unique and premium. He absolutely loved Shaam-e-Lucknow. Will order again!</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">F</div>
+        <div>
+          <div class="reviewer-name">Fatima Shaikh</div>
+          <div class="reviewer-loc">Delhi, NCR</div>
+          <div class="review-product">Discovery Gift Set</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">The Black Oudh is serious. Deep, powerful, and the longevity is incredible — still smelling it 12 hours later. This is NOT your regular market attar. Worth every rupee. Direct from Kannauj makes all the difference.</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">Z</div>
+        <div>
+          <div class="reviewer-name">Zaid Mirza</div>
+          <div class="reviewer-loc">Meerut, UP</div>
+          <div class="review-product">Qasim Black Oudh</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="section-label">Get in Touch</div>
+    <h2 class="section-title">Order or <em>Enquire</em></h2>
+    <div class="divider"></div>
+    <p class="section-desc">Order directly via WhatsApp for the fastest response. We deliver across India.</p>
+
+    <div class="contact-methods">
+      <a href="https://wa.me/917XXXXXXXXX" class="contact-card" target="_blank">
+        <span class="contact-card-icon">💬</span>
+        <div class="contact-card-label">WhatsApp</div>
+        <div class="contact-card-val">+91 70000 00000</div>
+      </a>
+      <a href="https://instagram.com/qasimattar" class="contact-card" target="_blank">
+        <span class="contact-card-icon">📸</span>
+        <div class="contact-card-label">Instagram</div>
+        <div class="contact-card-val">@qasimattar</div>
+      </a>
+      <a href="mailto:hello@qasimattar.in" class="contact-card">
+        <span class="contact-card-icon">✉️</span>
+        <div class="contact-card-label">Email</div>
+        <div class="contact-card-val">hello@qasimattar.in</div>
+      </a>
+    </div>
+
+    <a href="https://wa.me/917XXXXXXXXX?text=Assalam%20Alaikum%2C%20I%20want%20to%20order%20from%20Qasim%20Attar" target="_blank" class="contact-whatsapp">
+      💬 Chat on WhatsApp — Order Now
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo">Qasim <span>Attar</span></a>
+      <p>Pure, alcohol-free attars sourced directly from Kannauj — India's perfume capital. Authentic fragrances for those who value what is real.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#fragrances">All Fragrances</a></li>
+        <li><a href="#gifting">Gift Sets</a></li>
+        <li><a href="#fragrances">Signature Collection</a></li>
+        <li><a href="#fragrances">Premium Oudh</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Info</h4>
+      <ul>
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="https://wa.me/917XXXXXXXXX" target="_blank">WhatsApp Order</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Qasim Attar. All rights reserved.</p>
+    <p>Made with love in Meerut, UP &nbsp;|&nbsp; <a href="#contact">Privacy Policy</a></p>
+  </div>
+</footer>
+
+<!-- ORDER MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOnBg(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h3>Place Your Order</h3>
+    <p>Fill in your details — we'll confirm via WhatsApp within 2 hours.</p>
+    <form id="orderForm" onsubmit="submitOrder(event)">
+      <div class="form-group">
+        <label>Your Full Name</label>
+        <input type="text" id="custName" placeholder="e.g. Mohammed Raza" required/>
+      </div>
+      <div class="form-group">
+        <label>WhatsApp Number</label>
+        <input type="tel" id="custPhone" placeholder="+91 98765 43210" required/>
+      </div>
+      <div class="form-group">
+        <label>Select Fragrance</label>
+        <select id="custProduct" required>
+          <option value="">— Choose a fragrance —</option>
+          <option>Subah-e-Madina (₹499 / 10ml)</option>
+          <option>Shaam-e-Lucknow (₹599 / 10ml)</option>
+          <option>Bahar-e-Gulshan (₹449 / 10ml)</option>
+          <option>Qasim Black Oudh (₹999 / 10ml)</option>
+          <option>Noor-e-Sehar (₹399 / 10ml)</option>
+          <option>Discovery Set (₹799 / 5×3ml)</option>
+          <option>Gift Set — Floral Box (₹1,299)</option>
+          <option>Gift Set — Royal Oudh Box (₹1,699)</option>
+          <option>Personalized + Wooden Box (₹2,499)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Delivery City & State</label>
+        <input type="text" id="custCity" placeholder="e.g. Meerut, Uttar Pradesh" required/>
+      </div>
+      <div class="form-group">
+        <label>Special Request (optional)</label>
+        <textarea id="custNote" placeholder="e.g. Personalize bottle with my name 'Ahmad'..."></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send Order via WhatsApp →</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  // HAMBURGER
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // MODAL
+  function openModal(product = '') {
+    document.getElementById('modalOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (product) {
+      const select = document.getElementById('custProduct');
+      for (let opt of select.options) {
+        if (opt.text.includes(product)) { select.value = opt.value; break; }
+      }
+    }
+  }
+
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function closeModalOnBg(e) {
+    if (e.target === document.getElementById('modalOverlay')) closeModal();
+  }
+
+  // ORDER SUBMIT → WHATSAPP
+  function submitOrder(e) {
+    e.preventDefault();
+    const name = document.getElementById('custName').value.trim();
+    const phone = document.getElementById('custPhone').value.trim();
+    const product = document.getElementById('custProduct').value;
+    const city = document.getElementById('custCity').value.trim();
+    const note = document.getElementById('custNote').value.trim();
+
+    const msg = `Assalam Alaikum! 🌿 *New Order — Qasim Attar*
+    
+👤 Name: ${name}
+📞 Phone: ${phone}
+🧴 Product: ${product}
+📍 Deliver to: ${city}
+${note ? '📝 Note: ' + note : ''}
+
+Please confirm my order. JazakAllah!`;
+
+    // APNA WHATSAPP NUMBER YAHAN DAALEIN
+    const waNumber = '917000000000'; // ← Yahan apna number daalein (91 + number, no spaces)
+    window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+    closeModal();
+  }
+
+  // SCROLL NAV EFFECT
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    nav.style.background = window.scrollY > 60 ? 'rgba(10,8,4,0.97)' : 'rgba(10,8,4,0.85)';
+  });
+
+  // FADE IN ON SCROLL
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.product-card, .why-card, .review-card, .gift-option').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
