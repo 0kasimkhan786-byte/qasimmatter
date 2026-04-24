@@ -670,6 +670,71 @@
       font-weight: 600;
     }
 
+    /* ─── PRODUCT IMAGE ─── */
+    .product-img-wrap {
+      width: 100%;
+      height: 200px;
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #1a1408;
+    }
+
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .product-img-wrap img {
+      transform: scale(1.05);
+    }
+
+    /* Placeholder when no image */
+    .product-img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      background: linear-gradient(135deg, #1a1408, #0e0b05);
+    }
+
+    .placeholder-icon {
+      font-size: 3.5rem;
+      opacity: 0.6;
+    }
+
+    .placeholder-text {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .placeholder-text strong {
+      display: block;
+      color: var(--gold);
+      font-size: 0.72rem;
+      margin-bottom: 0.2rem;
+    }
+
+    /* Dashed border overlay on placeholder */
+    .product-img-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 8px;
+      border: 1px dashed rgba(212,168,67,0.25);
+      pointer-events: none;
+    }
+
     /* ─── WHY US ─── */
     .why { background: var(--bg-section); }
 
@@ -1283,8 +1348,15 @@
   <div class="products-grid">
     <div class="product-card product-featured">
       <div class="bestseller-badge">Bestseller</div>
+      <div class="product-img-wrap">
+        <!-- PHOTO: src mein apni file ka naam daalo, comment hatao -->
+        <!-- <img src="subah-madina.jpg" alt="Subah-e-Madina Attar"/> -->
+        <div class="product-img-placeholder">
+          <span class="placeholder-icon">🌹</span>
+          <div class="placeholder-text"><strong>Subah-e-Madina</strong>Photo yahan aayegi</div>
+        </div>
+      </div>
       <div class="product-tag">⭐ Signature Collection</div>
-      <span class="product-icon">🌹</span>
       <div class="product-name">Subah-e-Madina</div>
       <div class="product-arabic">صباح المدينة</div>
       <div class="product-desc">A serene morning fragrance — soft rose, warm sandalwood, and a whisper of musk. Made for prayers and peaceful beginnings.</div>
@@ -1298,8 +1370,14 @@
     </div>
 
     <div class="product-card">
+      <div class="product-img-wrap">
+        <!-- <img src="shaam-lucknow.jpg" alt="Shaam-e-Lucknow Attar"/> -->
+        <div class="product-img-placeholder">
+          <span class="placeholder-icon">🪵</span>
+          <div class="placeholder-text"><strong>Shaam-e-Lucknow</strong>Photo yahan aayegi</div>
+        </div>
+      </div>
       <div class="product-tag">🌙 Evening Collection</div>
-      <span class="product-icon">🪵</span>
       <div class="product-name">Shaam-e-Lucknow</div>
       <div class="product-arabic">شام لكناؤ</div>
       <div class="product-desc">Rich oudh and aged sandalwood meet warm amber — an evening scent that commands attention without demanding it.</div>
@@ -1313,8 +1391,14 @@
     </div>
 
     <div class="product-card">
+      <div class="product-img-wrap">
+        <!-- <img src="bahar-gulshan.jpg" alt="Bahar-e-Gulshan Attar"/> -->
+        <div class="product-img-placeholder">
+          <span class="placeholder-icon">🌺</span>
+          <div class="placeholder-text"><strong>Bahar-e-Gulshan</strong>Photo yahan aayegi</div>
+        </div>
+      </div>
       <div class="product-tag">🌸 Floral Collection</div>
-      <span class="product-icon">🌺</span>
       <div class="product-name">Bahar-e-Gulshan</div>
       <div class="product-arabic">بهار گلشن</div>
       <div class="product-desc">A garden in full bloom — jasmine, mogra, and a touch of kewda. Light, feminine, and unforgettably fresh.</div>
@@ -1328,8 +1412,14 @@
     </div>
 
     <div class="product-card">
+      <div class="product-img-wrap">
+        <!-- <img src="black-oudh.jpg" alt="Qasim Black Oudh"/> -->
+        <div class="product-img-placeholder">
+          <span class="placeholder-icon">🖤</span>
+          <div class="placeholder-text"><strong>Qasim Black Oudh</strong>Photo yahan aayegi</div>
+        </div>
+      </div>
       <div class="product-tag">🏔️ Premium Oudh</div>
-      <span class="product-icon">🖤</span>
       <div class="product-name">Qasim Black Oudh</div>
       <div class="product-arabic">العود الأسود</div>
       <div class="product-desc">Our most intense creation. Deep, smoky Oud from the finest agarwood — for those who leave a trail worth remembering.</div>
@@ -1343,8 +1433,14 @@
     </div>
 
     <div class="product-card">
+      <div class="product-img-wrap">
+        <!-- <img src="noor-sehar.jpg" alt="Noor-e-Sehar Attar"/> -->
+        <div class="product-img-placeholder">
+          <span class="placeholder-icon">🌊</span>
+          <div class="placeholder-text"><strong>Noor-e-Sehar</strong>Photo yahan aayegi</div>
+        </div>
+      </div>
       <div class="product-tag">💧 Fresh Collection</div>
-      <span class="product-icon">🌊</span>
       <div class="product-name">Noor-e-Sehar</div>
       <div class="product-arabic">نور سحر</div>
       <div class="product-desc">Clean, aquatic and crisp — a modern attar for everyday freshness. Light citrus meets white musk in this unisex delight.</div>
@@ -1358,8 +1454,14 @@
     </div>
 
     <div class="product-card">
+      <div class="product-img-wrap">
+        <!-- <img src="discovery-set.jpg" alt="Discovery Set"/> -->
+        <div class="product-img-placeholder">
+          <span class="placeholder-icon">✨</span>
+          <div class="placeholder-text"><strong>Discovery Set</strong>Photo yahan aayegi</div>
+        </div>
+      </div>
       <div class="product-tag">🎁 Gift Special</div>
-      <span class="product-icon">✨</span>
       <div class="product-name">Discovery Set</div>
       <div class="product-arabic">مجموعة الاكتشاف</div>
       <div class="product-desc">Try before you commit — 5 of our best fragrances in 3ml each. Presented in a beautiful gift box. Perfect first order.</div>
